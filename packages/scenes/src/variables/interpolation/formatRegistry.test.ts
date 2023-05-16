@@ -67,5 +67,9 @@ describe('formatRegistry', () => {
     expect(formatValue(FormatRegistryID.date, 1594671549254, 'text', ['YYYY-MM'])).toBe('2020-07');
     expect(formatValue(FormatRegistryID.date, 1594671549254, 'text', ['YYYY-MM', 'ss'])).toBe('2020-07:09');
     expect(formatValue(FormatRegistryID.date, 1594671549254, 'text', ['YYYY', 'MM', 'DD'])).toBe('2020:07:13');
+
+    expect(formatValue(FormatRegistryID.uqdn 'www')).toBe('www');
+    expect(formatValue(FormatRegistryID.uqdn 'www.google.com')).toBe('www');
+    expect(formatValue(FormatRegistryID.uqdn ['www1.google.com', 'www2.google.com'])).toBe('www1,www2');
   });
 });
