@@ -69,6 +69,10 @@ describe('formatRegistry', () => {
     expect(formatValue(VariableFormatID.Date, 1594671549254, 'text', ['YYYY-MM', 'ss'])).toBe('2020-07:09');
     expect(formatValue(VariableFormatID.Date, 1594671549254, 'text', ['YYYY', 'MM', 'DD'])).toBe('2020:07:13');
 
+    expect(formatValue('uqdn' as VariableFormatID, 'www')).toBe('www');
+    expect(formatValue('uqdn' as VariableFormatID, 'www.google.com')).toBe('www');
+    expect(formatValue('uqdn' as VariableFormatID, ['www1.google.com', 'www2.google.com'])).toBe('www1,www2');
+
     expect(formatValue(VariableFormatID.UriEncode, '/any-path/any-second-path?query=foo()bar BAZ')).toBe(
       '/any-path/any-second-path?query=foo%28%29bar%20BAZ'
     );

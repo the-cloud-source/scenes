@@ -307,10 +307,33 @@ export const formatRegistry = new Registry<FormatRegistryItem>(() => {
         return encodeURIStrict(value);
       },
     },
+    {
+      id: ('uqdn' as VariableFormatID), //VariableFormatID.uqdn,
+      name: 'Unqualified Domain Name',
+      description: 'Unqualify DNS names',
+      formatter: (value) => {
+        if (typeof value === 'string') {
+          return shortenValue(String(value));
+        } else if (Array.isArray(value) && value.every((elem) => typeof elem === 'string')) {
+          return map(value, (elem: string) => shortenValue(String(elem))).join(',');
+        } else {
+          return String(value);
+        }
+      },
+    },
   ];
 
   return formats;
 });
+
+function shortenValue(value: string) {
+  const indexOfFistDot = value.indexOf(".");
+  if (indexOfFistDot !== -1) {
+    return value.substr(0, indexOfFistDot);
+  } else {
+    return value;
+  }
+}
 
 function luceneEscape(value: string) {
   if (isNaN(+value) === false) {
