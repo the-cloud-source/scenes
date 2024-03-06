@@ -299,7 +299,7 @@ export const formatRegistry = new Registry<FormatRegistryItem>(() => {
       },
     },
     {
-      id: VariableFormatID.uqdn,
+      id: ('uqdn' as VariableFormatID), //VariableFormatID.uqdn,
       name: 'Unqualified Domain Name',
       description: 'Unqualify DNS names',
       formatter: (value) => {
