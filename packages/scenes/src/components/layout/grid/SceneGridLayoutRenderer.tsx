@@ -18,7 +18,7 @@ export function SceneGridLayoutRenderer({ model }: SceneComponentProps<SceneGrid
 
   return (
     <AutoSizer disableHeight>
-      {({ width }) => {
+      {({ width }: any) => {
         if (width === 0) {
           return null;
         }
