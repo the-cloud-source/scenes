@@ -37,7 +37,7 @@
     "url": "https://github.com/grafana/scenes/issues"
   },
   "dependencies": {
-    "@grafana/e2e-selectors": "workspace:*",
+    "@grafana/e2e-selectors": "^10.4.0",
     "react-grid-layout": "1.4.4",
     "react-use": "17.5.0",
     "react-virtualized-auto-sizer": "1.0.22",
